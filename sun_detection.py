@@ -1,44 +1,9 @@
 import cv2
-import numpy as np
 
 def display_image(title, img):
     cv2.imshow(title, img)
     cv2.waitKey(0)
 
-    # if(direction == 0 and binary_sun[xValue + 1, yValue] == 255):
-    #     sun_image[xValue + 1, yValue] = (255, 0, 0)
-    #     newDirection = 0
-    #     return newDirection
-    # elif(direction == 1 and binary_sun[xValue + 1, yValue + 1] == 255):
-    #     sun_image[xValue + 1, yValue + 1] = (255, 0, 0)
-    #     newDirection = 1
-    #     return newDirection
-    # elif(direction == 2 and binary_sun[xValue, yValue + 1] == 255):
-    #     sun_image[xValue, yValue + 1] = (255, 0, 0)
-    #     newDirection = 2
-    #     return newDirection
-    # elif(direction == 3 and binary_sun[xValue - 1, yValue + 1] == 255):
-    #     sun_image[xValue + 1, yValue + 1] = (255, 0, 0)
-    #     newDirection = 3
-    #     return newDirection
-    # elif(direction == 4 and binary_sun[xValue - 1, yValue] == 255):
-    #     sun_image[xValue + 1, yValue + 1] = (255, 0, 0)
-    #     newDirection = 4
-    #     return newDirection
-    # elif(direction == 5 and binary_sun[xValue - 1, yValue - 1] == 255):
-    #     sun_image[xValue + 1, yValue + 1] = (255, 0, 0)
-    #     newDirection = 5
-    #     return newDirection
-    # elif(direction == 6 and binary_sun[xValue, yValue - 1] == 255):
-    #     sun_image[xValue + 1, yValue + 1] = (255, 0, 0)
-    #     newDirection = 6
-    #     return newDirection
-    # elif(direction == 7 and binary_sun[xValue + 1, yValue - 1] == 255):
-    #     sun_image[xValue + 1, yValue + 1] = (255, 0, 0)
-    #     newDirection = 7
-    #     return newDirection
-    # else:
-    #     return 7
 def HighlightBoundary(direction,sun_image, binary_sun, xValue, yValue):
     print("i got called")
     while(direction < 8):
@@ -48,84 +13,65 @@ def HighlightBoundary(direction,sun_image, binary_sun, xValue, yValue):
                 print(f"Pixel value at({xValue + 1},{yValue}) : {binary_sun[xValue + 1, yValue]}")
                 sun_image[xValue + 1, yValue] = (255, 0, 0)
                 xValue += 1
-                return 0
-            else:
-                direction = (direction + 1) % 8
-                continue
-
-        if(direction == 1):
+                return direction, xValue, yValue
+                
+        elif(direction == 1):
             if(binary_sun[xValue + 1, yValue + 1] == 255):
                 print(f"Pixel value at({xValue + 1},{yValue+1}) : {binary_sun[xValue + 1, yValue +1]}")
                 sun_image[xValue + 1, yValue + 1] = (255, 0, 0)
                 xValue += 1
                 yValue += 1
-                return 1
-            else:
-                direction = (direction + 1) % 8
-                continue
+                return direction, xValue, yValue
+                
 
-        if(direction == 2):
+        elif(direction == 2):
             if(binary_sun[xValue, yValue + 1] == 255):
                 print(f"Pixel value at({xValue},{yValue+1}) : {binary_sun[xValue, yValue +1]}")
                 sun_image[xValue, yValue + 1] = (255, 0, 0)
                 yValue += 1
-                return 2
-            else:
-                direction = (direction + 1) % 8
-                continue
+                return direction, xValue, yValue
 
-        if(direction == 3):
+        elif(direction == 3):
             if(binary_sun[xValue - 1, yValue + 1] == 255):
                 print(f"Pixel value at({xValue - 1},{yValue+1}) : {binary_sun[xValue - 1, yValue +1]}")
                 sun_image[xValue - 1, yValue + 1] = (255, 0, 0)
                 xValue -= 1
                 yValue += 1
-                return 3
-            else:
-                direction = (direction + 1) % 8
-                continue
+                return direction, xValue, yValue
 
-        if(direction == 4):
+        elif(direction == 4):
             if(binary_sun[xValue - 1, yValue] == 255):
                 print(f"Pixel value at({xValue - 1},{yValue}) : {binary_sun[xValue - 1, yValue]}")
                 sun_image[xValue - 1, yValue] = (255, 0, 0)
                 xValue -= 1
-                return 4
-            else:
-                direction = (direction + 1) % 8
-                continue
+                return direction, xValue, yValue
 
-        if(direction == 5):
+        elif(direction == 5):
             if(binary_sun[xValue - 1, yValue - 1] == 255):
                 print(f"Pixel value at({xValue - 1},{yValue-1}) : {binary_sun[xValue - 1, yValue -1]}")
                 sun_image[xValue - 1, yValue - 1] = (255, 0, 0)
                 xValue -= 1
                 yValue -= 1
-                return 5
-            else:
-                direction = (direction + 1) % 8
-                continue
+                return direction, xValue, yValue
+                
 
-        if(direction == 6):
+        elif(direction == 6):
             if(binary_sun[xValue, yValue - 1] == 255):
                 print(f"Pixel value at({xValue},{yValue-1}) : {binary_sun[xValue, yValue -1]}")
                 sun_image[xValue, yValue - 1] = (255, 0, 0)
                 yValue -= 1
-                return 6
-            else:
-                direction = (direction + 1) % 8
-                continue
+                return direction, xValue, yValue
+                
 
-        if(direction == 7):
+        elif(direction == 7):
             if(binary_sun[xValue + 1, yValue - 1] == 255):
                 print(f"Pixel value at({xValue + 1},{yValue-1}) : {binary_sun[xValue + 1, yValue -1]}")
                 sun_image[xValue + 1, yValue - 1] = (255, 0, 0)
                 xValue += 1
                 yValue -= 1
-                return 7
-            else:
-                direction = (direction + 1) % 8
-                continue
+                return direction, xValue, yValue
+
+        direction = (direction + 1) % 8
    
 def DetectBoundary(xValue, yValue, sun_image, binary_sun):
     sun_image[xValue, yValue] = (255, 0, 0)
@@ -139,17 +85,15 @@ def DetectBoundary(xValue, yValue, sun_image, binary_sun):
         else:
             direction = (direction + 6) % 8
         
-        print(f"before first iteration : {direction}")
-        direction = HighlightBoundary(direction, sun_image, binary_sun, xValue, yValue)
-        #print(direction.type()) #testing
-        print(f"returned direction: {direction}")
-        count = count + 1
+        print(f"iteration {count+1}: {direction}")
+        print(f"x value: {xValue}, y value: {yValue}\n")
+        direction, xValue, yValue = HighlightBoundary(direction, sun_image, binary_sun, xValue, yValue)
+        print(f"returned direction: {direction}\n")
+        count += 1
         if(count == 5):
             break
     
     display_image("Boundary", sun_image)
-
-        
 
 sun_image = cv2.imread("images/sun_image_3.jpg")
 cv2.imshow("Original Image", sun_image)
@@ -194,4 +138,3 @@ for row in range(height-1):
         break
 
 cv2.destroyAllWindows()
-
