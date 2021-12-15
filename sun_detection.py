@@ -96,7 +96,7 @@ def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
     DisplayImage("Boundary Detected Image", originalSunImage)
 
 #Read the input image
-originalSunImage = cv2.imread("images/sun_image_4.jpg")
+originalSunImage = cv2.imread("images/sun_image_1_.jpg")
 DisplayImage("Original Image", originalSunImage)
 
 grayscaleSunImage = cv2.cvtColor(originalSunImage, cv2.COLOR_BGR2GRAY)
@@ -111,9 +111,10 @@ imageWidth = originalSunImage.shape[1]
 imageHeight = originalSunImage.shape[0]
 
 #Iterating over the image and converting it to binary by thresholding
+thresholdOffset = 10
 for row in range(imageHeight-1):
     for col in range(imageWidth-1):
-        if (grayscaleSunImage[row, col] <= maxIntensity - 10):
+        if (grayscaleSunImage[row, col] <= maxIntensity - thresholdOffset):
             grayscaleSunImage[row, col] = 0
         else:
             grayscaleSunImage[row, col] = 255
