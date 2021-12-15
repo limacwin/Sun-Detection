@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 
 #This function is used to display images
 def DisplayImage(title, image):
@@ -10,14 +11,12 @@ def HighlightBoundary(direction, originalSunImage, binarySunImage, xValue, yValu
     while(direction < 8):
         if(direction == 0):
             if(binarySunImage[xValue + 1, yValue] == 255):
-                print(f"Pixel value at({xValue + 1},{yValue}) : {binarySunImage[xValue + 1, yValue]}")
                 originalSunImage[xValue + 1, yValue] = (255, 0, 0)
                 xValue += 1
                 return direction, xValue, yValue
                 
         elif(direction == 1):
             if(binarySunImage[xValue + 1, yValue + 1] == 255):
-                print(f"Pixel value at({xValue + 1},{yValue+1}) : {binarySunImage[xValue + 1, yValue +1]}")
                 originalSunImage[xValue + 1, yValue + 1] = (255, 0, 0)
                 xValue += 1
                 yValue += 1
@@ -25,14 +24,12 @@ def HighlightBoundary(direction, originalSunImage, binarySunImage, xValue, yValu
                 
         elif(direction == 2):
             if(binarySunImage[xValue, yValue + 1] == 255):
-                print(f"Pixel value at({xValue},{yValue+1}) : {binarySunImage[xValue, yValue +1]}")
                 originalSunImage[xValue, yValue + 1] = (255, 0, 0)
                 yValue += 1
                 return direction, xValue, yValue
 
         elif(direction == 3):
             if(binarySunImage[xValue - 1, yValue + 1] == 255):
-                print(f"Pixel value at({xValue - 1},{yValue+1}) : {binarySunImage[xValue - 1, yValue +1]}")
                 originalSunImage[xValue - 1, yValue + 1] = (255, 0, 0)
                 xValue -= 1
                 yValue += 1
@@ -40,14 +37,12 @@ def HighlightBoundary(direction, originalSunImage, binarySunImage, xValue, yValu
 
         elif(direction == 4):
             if(binarySunImage[xValue - 1, yValue] == 255):
-                print(f"Pixel value at({xValue - 1},{yValue}) : {binarySunImage[xValue - 1, yValue]}")
                 originalSunImage[xValue - 1, yValue] = (255, 0, 0)
                 xValue -= 1
                 return direction, xValue, yValue
 
         elif(direction == 5):
             if(binarySunImage[xValue - 1, yValue - 1] == 255):
-                print(f"Pixel value at({xValue - 1},{yValue-1}) : {binarySunImage[xValue - 1, yValue -1]}")
                 originalSunImage[xValue - 1, yValue - 1] = (255, 0, 0)
                 xValue -= 1
                 yValue -= 1
@@ -55,14 +50,12 @@ def HighlightBoundary(direction, originalSunImage, binarySunImage, xValue, yValu
                 
         elif(direction == 6):
             if(binarySunImage[xValue, yValue - 1] == 255):
-                print(f"Pixel value at({xValue},{yValue-1}) : {binarySunImage[xValue, yValue -1]}")
                 originalSunImage[xValue, yValue - 1] = (255, 0, 0)
                 yValue -= 1
                 return direction, xValue, yValue
                 
         elif(direction == 7):
             if(binarySunImage[xValue + 1, yValue - 1] == 255):
-                print(f"Pixel value at({xValue + 1},{yValue-1}) : {binarySunImage[xValue + 1, yValue -1]}")
                 originalSunImage[xValue + 1, yValue - 1] = (255, 0, 0)
                 xValue += 1
                 yValue -= 1
@@ -72,7 +65,7 @@ def HighlightBoundary(direction, originalSunImage, binarySunImage, xValue, yValu
    
 #This function detects the direction for computation of boundary 
 def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
-    data = open("BoundaryData.txt", "w")
+    data = open("Boundary_Data.txt", "w")
     originalSunImage[xValue, yValue] = (255, 0, 0)
     terminationXValue = -1
     terminationYValue = -1
@@ -83,17 +76,13 @@ def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
             direction = (direction + 7) % 8
         else:
             direction = (direction + 6) % 8
-        
-        print(f"Iteration {count + 1}: direction - {direction}")
-        print(f"X value: {xValue}, Y value: {yValue}\n")
 
-        data.write(f"Iteration {count+1}: direction - {direction}\n")
+        data.write(f"Iteration {count+1}: direction: {direction}\n")
         data.write(f"X value: {xValue} , Y Value: {yValue}\n")
 
         direction, xValue, yValue = HighlightBoundary(direction, originalSunImage, binarySunImage, xValue, yValue)
-        print(f"Returned direction: {direction}\n")
 
-        data.write(f"Returned direction - {direction}\n")
+        data.write(f"Returned direction: {direction}\n")
         count += 1
         if(xValue == terminationXValue and yValue == terminationYValue):
             print("Boundary detected successfully")
@@ -108,25 +97,20 @@ def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
 
 #Read the input image
 originalSunImage = cv2.imread("images/sun_image_4.jpg")
-cv2.imshow("Original Image", originalSunImage)
-cv2.waitKey(0)
+DisplayImage("Original Image", originalSunImage)
 
 grayscaleSunImage = cv2.cvtColor(originalSunImage, cv2.COLOR_BGR2GRAY)
-cv2.imshow("Grayscale Image", grayscaleSunImage)
-cv2.waitKey(0)
+DisplayImage("Grayscale Image", grayscaleSunImage)
 
 (minIntensity, maxIntensity, minIntensityPixelLocation, maxIntensityPixelLocation) = cv2.minMaxLoc(grayscaleSunImage)
-print(f"Max intensity: {maxIntensity} & Min intensity: {minIntensity}")
-print(f"Max intensity Location: {maxIntensityPixelLocation} & Min intensity Location: {minIntensityPixelLocation}")
-originalSunImage[minIntensityPixelLocation[1], minIntensityPixelLocation[0]] = (0, 0, 0)
-originalSunImage = cv2.circle(originalSunImage, maxIntensityPixelLocation, 20, (0, 0, 0), thickness = 0)
+originalSunImage = cv2.circle(originalSunImage, maxIntensityPixelLocation, 1, (0, 0, 255), thickness = 2)
 DisplayImage("Max Intensity Pixel Point", originalSunImage)
 
 #Gets the image width and height
 imageWidth = originalSunImage.shape[1]
 imageHeight = originalSunImage.shape[0]
 
-#Iterating over the image and converting the image to binary image by thresholding
+#Iterating over the image and converting it to binary by thresholding
 for row in range(imageHeight-1):
     for col in range(imageWidth-1):
         if (grayscaleSunImage[row, col] <= maxIntensity - 10):
@@ -135,8 +119,22 @@ for row in range(imageHeight-1):
             grayscaleSunImage[row, col] = 255
 
 binarySunImage = grayscaleSunImage
-cv2.imwrite("D:\BE Project\Codes\Border Tracing Algorithm\BinaryThresholdImage.bmp", binarySunImage)
-DisplayImage("Binary Image", binarySunImage)
+DisplayImage("Image without Erosion", binarySunImage)
+
+kernel = np.ones((7,7), np.uint8);
+binarySunImage = cv2.erode(binarySunImage, kernel, iterations=1)
+DisplayImage("Eroded Image", binarySunImage)
+
+cv2.imwrite("Binary_Threshold_Image.bmp", binarySunImage)
+
+# moments = cv2.moments(binarySunImage)
+
+# cX = int(moments["m10"] / moments["m00"])
+# cY = int(moments["m01"] / moments["m00"])
+
+# cv2.circle(binarySunImage, (cX, cY), 5, (0), -1)
+
+# DisplayImage("Centroid Image", binarySunImage)
 
 maxIntensityPixelFound = False
 
@@ -145,8 +143,6 @@ for row in range(imageHeight-1):
     for col in range(imageWidth-1):
         if (binarySunImage[row, col] == 255):
             maxIntensityPixelFound = True
-            print(row)
-            print(col)
             xValue = row
             yValue = col
             CalculateDirection(xValue, yValue, originalSunImage, binarySunImage)
