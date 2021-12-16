@@ -10,58 +10,61 @@ def DisplayImage(title, image):
 def HighlightBoundary(direction, originalSunImage, binarySunImage, xValue, yValue):
     while(direction < 8):
         if(direction == 0):
-            if(binarySunImage[xValue + 1, yValue] == 255):
-                originalSunImage[xValue + 1, yValue] = (255, 0, 0)
-                xValue += 1
-                return direction, xValue, yValue
-                
-        elif(direction == 1):
-            if(binarySunImage[xValue + 1, yValue + 1] == 255):
-                originalSunImage[xValue + 1, yValue + 1] = (255, 0, 0)
-                xValue += 1
-                yValue += 1
-                return direction, xValue, yValue
-                
-        elif(direction == 2):
             if(binarySunImage[xValue, yValue + 1] == 255):
                 originalSunImage[xValue, yValue + 1] = (255, 0, 0)
                 yValue += 1
                 return direction, xValue, yValue
-
-        elif(direction == 3):
+                
+        elif(direction == 1):
             if(binarySunImage[xValue - 1, yValue + 1] == 255):
                 originalSunImage[xValue - 1, yValue + 1] = (255, 0, 0)
                 xValue -= 1
                 yValue += 1
                 return direction, xValue, yValue
-
-        elif(direction == 4):
+                
+        elif(direction == 2):
             if(binarySunImage[xValue - 1, yValue] == 255):
                 originalSunImage[xValue - 1, yValue] = (255, 0, 0)
                 xValue -= 1
                 return direction, xValue, yValue
 
-        elif(direction == 5):
+        elif(direction == 3):
             if(binarySunImage[xValue - 1, yValue - 1] == 255):
                 originalSunImage[xValue - 1, yValue - 1] = (255, 0, 0)
                 xValue -= 1
                 yValue -= 1
                 return direction, xValue, yValue
-                
-        elif(direction == 6):
+
+        elif(direction == 4):
             if(binarySunImage[xValue, yValue - 1] == 255):
                 originalSunImage[xValue, yValue - 1] = (255, 0, 0)
                 yValue -= 1
                 return direction, xValue, yValue
-                
-        elif(direction == 7):
+
+        elif(direction == 5):
             if(binarySunImage[xValue + 1, yValue - 1] == 255):
                 originalSunImage[xValue + 1, yValue - 1] = (255, 0, 0)
                 xValue += 1
                 yValue -= 1
+                print(f"Returning: {direction}")
+                return direction, xValue, yValue
+                
+        elif(direction == 6):
+            if(binarySunImage[xValue + 1, yValue] == 255):
+                originalSunImage[xValue + 1, yValue] = (255, 0, 0)
+                xValue += 1
+                return direction, xValue, yValue
+                
+        elif(direction == 7):
+            if(binarySunImage[xValue + 1, yValue + 1] == 255):
+                originalSunImage[xValue + 1, yValue + 1] = (255, 0, 0)
+                xValue += 1
+                yValue += 1
                 return direction, xValue, yValue
 
+        print(f"direction: {direction}", end=" ")
         direction = (direction + 1) % 8
+        print(f"new_direction: {direction}")
    
 #This function detects the direction for computation of boundary 
 def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
@@ -70,6 +73,7 @@ def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
     terminationXValue = -1
     terminationYValue = -1
     direction = 7
+    data.write(f"Initial direction: {direction}\n\n")
     count = 0
     while True: 
         if(direction % 2 == 0):
@@ -80,9 +84,10 @@ def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
         data.write(f"Iteration {count+1}: direction: {direction}\n")
         data.write(f"X value: {xValue} , Y Value: {yValue}\n")
 
+        print(f'function call with direction: {direction}, xval: {xValue}, yval: {yValue}')
         direction, xValue, yValue = HighlightBoundary(direction, originalSunImage, binarySunImage, xValue, yValue)
-
-        data.write(f"Returned direction: {direction}\n")
+        print(f'function return with direction: {direction}, xval: {xValue}, yval: {yValue}')
+        data.write(f"Returned direction: {direction}\n\n")
         count += 1
         if(xValue == terminationXValue and yValue == terminationYValue):
             print("Boundary detected successfully")
@@ -96,14 +101,15 @@ def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
     DisplayImage("Boundary Detected Image", originalSunImage)
 
 #Read the input image
-originalSunImage = cv2.imread("images/sun_image_1_.jpg")
+originalSunImage = cv2.imread("Border_Tracing_Image.png")
 DisplayImage("Original Image", originalSunImage)
 
 grayscaleSunImage = cv2.cvtColor(originalSunImage, cv2.COLOR_BGR2GRAY)
 DisplayImage("Grayscale Image", grayscaleSunImage)
 
 (minIntensity, maxIntensity, minIntensityPixelLocation, maxIntensityPixelLocation) = cv2.minMaxLoc(grayscaleSunImage)
-originalSunImage = cv2.circle(originalSunImage, maxIntensityPixelLocation, 1, (0, 0, 255), thickness = 2)
+# originalSunImage = cv2.circle(originalSunImage, maxIntensityPixelLocation, 1, (0, 0, 255), thickness = 2)
+originalSunImage[maxIntensityPixelLocation[1], maxIntensityPixelLocation[0]] = (0, 0, 255)
 DisplayImage("Max Intensity Pixel Point", originalSunImage)
 
 #Gets the image width and height
@@ -122,11 +128,11 @@ for row in range(imageHeight-1):
 binarySunImage = grayscaleSunImage
 DisplayImage("Image without Erosion", binarySunImage)
 
-kernel = np.ones((7,7), np.uint8);
-binarySunImage = cv2.erode(binarySunImage, kernel, iterations=1)
-DisplayImage("Eroded Image", binarySunImage)
+# kernel = np.ones((7,7), np.uint8);
+# binarySunImage = cv2.erode(binarySunImage, kernel, iterations=1)
+# DisplayImage("Eroded Image", binarySunImage)
 
-cv2.imwrite("Binary_Threshold_Image.bmp", binarySunImage)
+# cv2.imwrite("Binary_Threshold_Image.bmp", binarySunImage)
 
 # moments = cv2.moments(binarySunImage)
 
