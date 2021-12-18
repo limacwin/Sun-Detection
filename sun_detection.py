@@ -101,15 +101,15 @@ def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
     DisplayImage("Boundary Detected Image", originalSunImage)
 
 #Read the input image
-originalSunImage = cv2.imread("Border_Tracing_Image.png")
+originalSunImage = cv2.imread("images/Eroded_Image.png")
 DisplayImage("Original Image", originalSunImage)
 
 grayscaleSunImage = cv2.cvtColor(originalSunImage, cv2.COLOR_BGR2GRAY)
 DisplayImage("Grayscale Image", grayscaleSunImage)
 
 (minIntensity, maxIntensity, minIntensityPixelLocation, maxIntensityPixelLocation) = cv2.minMaxLoc(grayscaleSunImage)
-# originalSunImage = cv2.circle(originalSunImage, maxIntensityPixelLocation, 1, (0, 0, 255), thickness = 2)
-originalSunImage[maxIntensityPixelLocation[1], maxIntensityPixelLocation[0]] = (0, 0, 255)
+originalSunImage = cv2.circle(originalSunImage, maxIntensityPixelLocation, 1, (0, 0, 255), thickness = 10)
+# originalSunImage[maxIntensityPixelLocation[1], maxIntensityPixelLocation[0]] = (0, 0, 255)
 DisplayImage("Max Intensity Pixel Point", originalSunImage)
 
 #Gets the image width and height
@@ -128,11 +128,11 @@ for row in range(imageHeight-1):
 binarySunImage = grayscaleSunImage
 DisplayImage("Image without Erosion", binarySunImage)
 
-# kernel = np.ones((7,7), np.uint8);
-# binarySunImage = cv2.erode(binarySunImage, kernel, iterations=1)
-# DisplayImage("Eroded Image", binarySunImage)
+kernel = np.ones((7,7), np.uint8);
+binarySunImage = cv2.erode(binarySunImage, kernel, iterations=1)
+DisplayImage("Eroded Image", binarySunImage)
 
-# cv2.imwrite("Binary_Threshold_Image.bmp", binarySunImage)
+cv2.imwrite("Binary_Threshold_Image.bmp", binarySunImage)
 
 # moments = cv2.moments(binarySunImage)
 
