@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import utilities as util
 
 #This function is used to display images
 def DisplayImage(title, image):
@@ -101,14 +102,14 @@ def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
     DisplayImage("Boundary Detected Image", originalSunImage)
 
 #Read the input image
-originalSunImage = cv2.imread("images/Eroded_Image.png")
+originalSunImage = cv2.imread("images/sun_image_6.jpg")
 DisplayImage("Original Image", originalSunImage)
 
 grayscaleSunImage = cv2.cvtColor(originalSunImage, cv2.COLOR_BGR2GRAY)
 DisplayImage("Grayscale Image", grayscaleSunImage)
 
 (minIntensity, maxIntensity, minIntensityPixelLocation, maxIntensityPixelLocation) = cv2.minMaxLoc(grayscaleSunImage)
-originalSunImage = cv2.circle(originalSunImage, maxIntensityPixelLocation, 1, (0, 0, 255), thickness = 10)
+originalSunImage = cv2.circle(originalSunImage, maxIntensityPixelLocation, 1, (0, 0, 255), thickness = 2)
 # originalSunImage[maxIntensityPixelLocation[1], maxIntensityPixelLocation[0]] = (0, 0, 255)
 DisplayImage("Max Intensity Pixel Point", originalSunImage)
 
@@ -128,7 +129,7 @@ for row in range(imageHeight-1):
 binarySunImage = grayscaleSunImage
 DisplayImage("Image without Erosion", binarySunImage)
 
-kernel = np.ones((7,7), np.uint8);
+kernel = np.ones((7,7), np.uint8)
 binarySunImage = cv2.erode(binarySunImage, kernel, iterations=1)
 DisplayImage("Eroded Image", binarySunImage)
 
@@ -143,6 +144,10 @@ cv2.imwrite("Binary_Threshold_Image.bmp", binarySunImage)
 
 # DisplayImage("Centroid Image", binarySunImage)
 
+xCentroidCoordinate, yCentroidCoordinate = util.CalculateCentroid(originalSunImage, binarySunImage, imageWidth, imageHeight)
+
+util.CalulateOffset(xCentroidCoordinate, yCentroidCoordinate, originalSunImage, imageWidth, imageHeight)
+
 maxIntensityPixelFound = False
 
 #Iterating over the image and finding out the first pixel having pixel value 255 (in linear fashion)
@@ -153,7 +158,7 @@ for row in range(imageHeight-1):
             xValue = row
             yValue = col
             CalculateDirection(xValue, yValue, originalSunImage, binarySunImage)
-            break
+            break 
     if(maxIntensityPixelFound):
         break
 
