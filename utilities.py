@@ -72,4 +72,3 @@ def CalulateOffset(xCentroidCoordinate, yCentroidCoordinate, originalSunImage, i
 
     cv2.imshow("Offset Image", offsetImage)
     cv2.waitKey(0)
-

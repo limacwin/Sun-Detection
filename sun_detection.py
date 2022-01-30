@@ -47,7 +47,6 @@ def HighlightBoundary(direction, originalSunImage, binarySunImage, xValue, yValu
                 originalSunImage[xValue + 1, yValue - 1] = (255, 0, 0)
                 xValue += 1
                 yValue -= 1
-                print(f"Returning: {direction}")
                 return direction, xValue, yValue
                 
         elif(direction == 6):
@@ -63,13 +62,13 @@ def HighlightBoundary(direction, originalSunImage, binarySunImage, xValue, yValu
                 yValue += 1
                 return direction, xValue, yValue
 
-        print(f"direction: {direction}", end=" ")
+        # print(f"direction: {direction}", end=" ")
         direction = (direction + 1) % 8
-        print(f"new_direction: {direction}")
+        # print(f"new_direction: {direction}")
    
 #This function detects the direction for computation of boundary 
 def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
-    data = open("Boundary_Data.txt", "w")
+    data = open("data/boundary_data.txt", "w")
     originalSunImage[xValue, yValue] = (255, 0, 0)
     terminationXValue = -1
     terminationYValue = -1
@@ -85,9 +84,9 @@ def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
         data.write(f"Iteration {count+1}: direction: {direction}\n")
         data.write(f"X value: {xValue} , Y Value: {yValue}\n")
 
-        print(f'function call with direction: {direction}, xval: {xValue}, yval: {yValue}')
+        # print(f'function call with direction: {direction}, xval: {xValue}, yval: {yValue}')
         direction, xValue, yValue = HighlightBoundary(direction, originalSunImage, binarySunImage, xValue, yValue)
-        print(f'function return with direction: {direction}, xval: {xValue}, yval: {yValue}')
+        # print(f'function return with direction: {direction}, xval: {xValue}, yval: {yValue}')
         data.write(f"Returned direction: {direction}\n\n")
         count += 1
         if(xValue == terminationXValue and yValue == terminationYValue):
@@ -101,65 +100,57 @@ def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
     data.close()
     DisplayImage("Boundary Detected Image", originalSunImage)
 
-#Read the input image
-originalSunImage = cv2.imread("images/sun_image_6.jpg")
-DisplayImage("Original Image", originalSunImage)
+def SunDetection():
+    #Read the input image
+    originalSunImage = cv2.imread("images/sun_image_4.jpg")
+    DisplayImage("Original Image", originalSunImage)
 
-grayscaleSunImage = cv2.cvtColor(originalSunImage, cv2.COLOR_BGR2GRAY)
-DisplayImage("Grayscale Image", grayscaleSunImage)
+    grayscaleSunImage = cv2.cvtColor(originalSunImage, cv2.COLOR_BGR2GRAY)
+    DisplayImage("Grayscale Image", grayscaleSunImage)
 
-(minIntensity, maxIntensity, minIntensityPixelLocation, maxIntensityPixelLocation) = cv2.minMaxLoc(grayscaleSunImage)
-originalSunImage = cv2.circle(originalSunImage, maxIntensityPixelLocation, 1, (0, 0, 255), thickness = 2)
-# originalSunImage[maxIntensityPixelLocation[1], maxIntensityPixelLocation[0]] = (0, 0, 255)
-DisplayImage("Max Intensity Pixel Point", originalSunImage)
+    (minIntensity, maxIntensity, minIntensityPixelLocation, maxIntensityPixelLocation) = cv2.minMaxLoc(grayscaleSunImage)
+    originalSunImage = cv2.circle(originalSunImage, maxIntensityPixelLocation, 1, (0, 0, 255), thickness = 2)
+    # originalSunImage[maxIntensityPixelLocation[1], maxIntensityPixelLocation[0]] = (0, 0, 255)
+    DisplayImage("Max Intensity Pixel Point", originalSunImage)
 
-#Gets the image width and height
-imageWidth = originalSunImage.shape[1]
-imageHeight = originalSunImage.shape[0]
+    #Gets the image width and height
+    imageWidth = originalSunImage.shape[1]
+    imageHeight = originalSunImage.shape[0]
 
-#Iterating over the image and converting it to binary by thresholding
-thresholdOffset = 10
-for row in range(imageHeight-1):
-    for col in range(imageWidth-1):
-        if (grayscaleSunImage[row, col] <= maxIntensity - thresholdOffset):
-            grayscaleSunImage[row, col] = 0
-        else:
-            grayscaleSunImage[row, col] = 255
+    #Iterating over the image and converting it to binary by thresholding
+    thresholdOffset = 10
+    for row in range(imageHeight-1):
+        for col in range(imageWidth-1):
+            if (grayscaleSunImage[row, col] <= maxIntensity - thresholdOffset):
+                grayscaleSunImage[row, col] = 0
+            else:
+                grayscaleSunImage[row, col] = 255
 
-binarySunImage = grayscaleSunImage
-DisplayImage("Image without Erosion", binarySunImage)
+    binarySunImage = grayscaleSunImage
+    DisplayImage("Image without Erosion", binarySunImage)
 
-kernel = np.ones((7,7), np.uint8)
-binarySunImage = cv2.erode(binarySunImage, kernel, iterations=1)
-DisplayImage("Eroded Image", binarySunImage)
+    kernel = np.ones((7,7), np.uint8)
+    binarySunImage = cv2.erode(binarySunImage, kernel, iterations=1)
+    DisplayImage("Eroded Image", binarySunImage)
 
-cv2.imwrite("Binary_Threshold_Image.bmp", binarySunImage)
+    cv2.imwrite("images/generated/binary_threshold_image.bmp", binarySunImage)
 
-# moments = cv2.moments(binarySunImage)
+    xCentroidCoordinate, yCentroidCoordinate = util.CalculateCentroid(originalSunImage, binarySunImage, imageWidth, imageHeight)
 
-# cX = int(moments["m10"] / moments["m00"])
-# cY = int(moments["m01"] / moments["m00"])
+    util.CalulateOffset(xCentroidCoordinate, yCentroidCoordinate, originalSunImage, imageWidth, imageHeight)
 
-# cv2.circle(binarySunImage, (cX, cY), 5, (0), -1)
+    maxIntensityPixelFound = False
 
-# DisplayImage("Centroid Image", binarySunImage)
+    #Iterating over the image and finding out the first pixel having pixel value 255 (in linear fashion)
+    for row in range(imageHeight-1):
+        for col in range(imageWidth-1):
+            if (binarySunImage[row, col] == 255):
+                maxIntensityPixelFound = True
+                xValue = row
+                yValue = col
+                CalculateDirection(xValue, yValue, originalSunImage, binarySunImage)
+                break 
+        if(maxIntensityPixelFound):
+            break
 
-xCentroidCoordinate, yCentroidCoordinate = util.CalculateCentroid(originalSunImage, binarySunImage, imageWidth, imageHeight)
-
-util.CalulateOffset(xCentroidCoordinate, yCentroidCoordinate, originalSunImage, imageWidth, imageHeight)
-
-maxIntensityPixelFound = False
-
-#Iterating over the image and finding out the first pixel having pixel value 255 (in linear fashion)
-for row in range(imageHeight-1):
-    for col in range(imageWidth-1):
-        if (binarySunImage[row, col] == 255):
-            maxIntensityPixelFound = True
-            xValue = row
-            yValue = col
-            CalculateDirection(xValue, yValue, originalSunImage, binarySunImage)
-            break 
-    if(maxIntensityPixelFound):
-        break
-
-cv2.destroyAllWindows()
+    cv2.destroyAllWindows()
