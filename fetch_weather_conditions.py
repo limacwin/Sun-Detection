@@ -1,4 +1,5 @@
 from multiprocessing import Condition
+# config.py contains the rapidapi_host location and the private rapidapi_key values, kindly enter your own values or ask me for mine :)
 import config
 import requests
 
