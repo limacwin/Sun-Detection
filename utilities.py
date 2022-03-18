@@ -40,9 +40,9 @@ def CalculateCentroid(originalSunImage, binarySunImage, imageWidth, imageHeight)
     print(f"Centroid coordinate (X, Y): ({xCentroidCoordinate},{yCentroidCoordinate})")
 
     originalSunImage[xCentroidCoordinate, yCentroidCoordinate] = (0, 255, 0)
-    cv2.circle(originalSunImage, (yCentroidCoordinate, xCentroidCoordinate), 8, (0, 255, 0), thickness = 1)
-    cv2.imshow("Centroid", originalSunImage)
-    cv2.waitKey(0)
+    # cv2.circle(originalSunImage, (yCentroidCoordinate, xCentroidCoordinate), 8, (0, 255, 0), thickness = 1)
+    # cv2.imshow("Centroid", originalSunImage)
+    # cv2.waitKey(0)
     
     return xCentroidCoordinate, yCentroidCoordinate
 
@@ -56,19 +56,34 @@ def CalulateOffset(xCentroidCoordinate, yCentroidCoordinate, originalSunImage, i
     centreFrameCoordinate = (xFrameCentreCoordinate, yFrameCentreCoordinate)
     centroidCoordinate = (yCentroidCoordinate, xCentroidCoordinate)
     originalSunImage[yFrameCentreCoordinate, xFrameCentreCoordinate] = (0, 0, 0)
-    cv2.circle(originalSunImage, centreFrameCoordinate, 8, (0, 0, 0), thickness = 1)
+    # cv2.circle(originalSunImage, centreFrameCoordinate, 8, (0, 0, 0), thickness = 1)
     
     cv2.imshow("Frame Centre", originalSunImage)
     cv2.waitKey(0)
 
-    cv2.line(originalSunImage, centreFrameCoordinate, centroidCoordinate, (0, 0, 0), thickness = 1)
-    cv2.imshow("Offset", originalSunImage)
-    cv2.waitKey(0)
+    # cv2.line(originalSunImage, centreFrameCoordinate, centroidCoordinate, (0, 0, 0), thickness = 1)
+    # cv2.imshow("Offset", originalSunImage)
+    # cv2.waitKey(0)
 
     #Calculating the offset distance
-    offset = math.sqrt(((xCentroidCoordinate - xFrameCentreCoordinate) ** 2) + ((yCentroidCoordinate - yFrameCentreCoordinate) ** 2))
-
-    offsetImage = cv2.putText(originalSunImage, f"Offset = {offset}", (xFrameCentreCoordinate + 20, yFrameCentreCoordinate + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), thickness = 1)
-
-    cv2.imshow("Offset Image", offsetImage)
+    # offset = math.sqrt(((xCentroidCoordinate - xFrameCentreCoordinate) ** 2) + ((yCentroidCoordinate - yFrameCentreCoordinate) ** 2))
+    intersection = (yCentroidCoordinate, yFrameCentreCoordinate)
+    # offsetY = (xFrameCentreCoordinate, yCentroidCoordinate)
+    
+    cv2.line(originalSunImage, centroidCoordinate, intersection, (0, 0, 0), thickness = 1)  # Line 1
+    cv2.line(originalSunImage, intersection, centreFrameCoordinate, (0, 0, 0), thickness = 1) # Line 2
+    cv2.imshow("Offset", originalSunImage)
     cv2.waitKey(0)
+                          
+    offsetX = abs(yCentroidCoordinate - xFrameCentreCoordinate)
+    offsetY = abs(xCentroidCoordinate - yFrameCentreCoordinate)
+    
+    print(f"OffsetX: {offsetX}")
+    print(f"OffsetY: {offsetY}")
+    
+    return offsetX, offsetY
+    
+    # offsetImage = cv2.putText(originalSunImage, f"Offset = {offset}", (xFrameCentreCoordinate + 20, yFrameCentreCoordinate + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), thickness = 1)
+
+    # cv2.imshow("Offset Image", offsetImage)
+    # cv2.waitKey(0)

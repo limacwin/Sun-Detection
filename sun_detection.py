@@ -98,20 +98,21 @@ def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
             terminationYValue = yValue
     
     data.close()
-    DisplayImage("Boundary Detected Image", originalSunImage)
+    # DisplayImage("Boundary Detected Image", originalSunImage)
 
-def SunDetection():
+def SunDetection(pathToImage):
     #Read the input image
-    originalSunImage = cv2.imread("images/sun_image_4.jpg")
-    DisplayImage("Original Image", originalSunImage)
+    print(pathToImage)
+    originalSunImage = cv2.imread(pathToImage)
+    #DisplayImage("Original Image", originalSunImage)
 
     grayscaleSunImage = cv2.cvtColor(originalSunImage, cv2.COLOR_BGR2GRAY)
-    DisplayImage("Grayscale Image", grayscaleSunImage)
+    # DisplayImage("Grayscale Image", grayscaleSunImage)
 
     (minIntensity, maxIntensity, minIntensityPixelLocation, maxIntensityPixelLocation) = cv2.minMaxLoc(grayscaleSunImage)
-    originalSunImage = cv2.circle(originalSunImage, maxIntensityPixelLocation, 1, (0, 0, 255), thickness = 2)
+    # originalSunImage = cv2.circle(originalSunImage, maxIntensityPixelLocation, 1, (0, 0, 255), thickness = 2)
     # originalSunImage[maxIntensityPixelLocation[1], maxIntensityPixelLocation[0]] = (0, 0, 255)
-    DisplayImage("Max Intensity Pixel Point", originalSunImage)
+    # DisplayImage("Max Intensity Pixel Point", originalSunImage)
 
     #Gets the image width and height
     imageWidth = originalSunImage.shape[1]
@@ -127,17 +128,13 @@ def SunDetection():
                 grayscaleSunImage[row, col] = 255
 
     binarySunImage = grayscaleSunImage
-    DisplayImage("Image without Erosion", binarySunImage)
+    # DisplayImage("Image without Erosion", binarySunImage)
 
     kernel = np.ones((7,7), np.uint8)
     binarySunImage = cv2.erode(binarySunImage, kernel, iterations=1)
-    DisplayImage("Eroded Image", binarySunImage)
+    # DisplayImage("Eroded Image", binarySunImage)
 
     cv2.imwrite("images/generated/binary_threshold_image.bmp", binarySunImage)
-
-    xCentroidCoordinate, yCentroidCoordinate = util.CalculateCentroid(originalSunImage, binarySunImage, imageWidth, imageHeight)
-
-    util.CalulateOffset(xCentroidCoordinate, yCentroidCoordinate, originalSunImage, imageWidth, imageHeight)
 
     maxIntensityPixelFound = False
 
@@ -152,5 +149,11 @@ def SunDetection():
                 break 
         if(maxIntensityPixelFound):
             break
+        
+    xCentroidCoordinate, yCentroidCoordinate = util.CalculateCentroid(originalSunImage, binarySunImage, imageWidth, imageHeight)
+
+    offsetX, offsetY = util.CalulateOffset(xCentroidCoordinate, yCentroidCoordinate, originalSunImage, imageWidth, imageHeight)
 
     cv2.destroyAllWindows()
+    
+    return offsetX, offsetY
