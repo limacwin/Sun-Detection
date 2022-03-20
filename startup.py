@@ -28,7 +28,9 @@ connectionStatus = connectionStatus()
 
 if(cameraStatus and connectionStatus):
     logs.write("Camera Detected and Connection established. Proceeding to application status checking.\n")
+    # call to firebase database connection checker 
 else:
     logs.write("Something feels wrong here. Kindly recheck!\n")
+    # abort and/or wait for connection to get established
 
 logs.close()
