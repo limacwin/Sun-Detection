@@ -1,8 +1,7 @@
 import cv2
-import math
 
 def CalculateCentroid(originalSunImage, binarySunImage, imageWidth, imageHeight):
-    print("Calculating Centroid...")
+    # print("Calculating Centroid...")
     m10 = 0
     m01 = 0
     totalWhitePixels = 0
@@ -34,10 +33,10 @@ def CalculateCentroid(originalSunImage, binarySunImage, imageWidth, imageHeight)
     xCentroidCoordinate = round(m10/totalWhitePixels)
     yCentroidCoordinate = round(m01/totalWhitePixels)
 
-    print(f"Total White Pixels: {totalWhitePixels}")
-    print(f"m10: {m10}")
-    print(f"m01: {m01}")
-    print(f"Centroid coordinate (X, Y): ({xCentroidCoordinate},{yCentroidCoordinate})")
+    # print(f"Total White Pixels: {totalWhitePixels}")
+    # print(f"m10: {m10}")
+    # print(f"m01: {m01}")
+    # print(f"Centroid coordinate (X, Y): ({xCentroidCoordinate},{yCentroidCoordinate})")
 
     originalSunImage[xCentroidCoordinate, yCentroidCoordinate] = (0, 255, 0)
     # cv2.circle(originalSunImage, (yCentroidCoordinate, xCentroidCoordinate), 8, (0, 255, 0), thickness = 1)
@@ -47,19 +46,19 @@ def CalculateCentroid(originalSunImage, binarySunImage, imageWidth, imageHeight)
     return xCentroidCoordinate, yCentroidCoordinate
 
 def CalulateOffset(xCentroidCoordinate, yCentroidCoordinate, originalSunImage, imageWidth, imageHeight):
-    print("Calculating offset...")
+    # print("Calculating offset...")
     #Calculating the centre of the frame
     xFrameCentreCoordinate = round(imageWidth/2)
     yFrameCentreCoordinate = round(imageHeight/2)
 
-    print(f"Frame centre coordinates: ({xFrameCentreCoordinate},{yFrameCentreCoordinate})")
+    # print(f"Frame centre coordinates: ({xFrameCentreCoordinate},{yFrameCentreCoordinate})")
     centreFrameCoordinate = (xFrameCentreCoordinate, yFrameCentreCoordinate)
     centroidCoordinate = (yCentroidCoordinate, xCentroidCoordinate)
     originalSunImage[yFrameCentreCoordinate, xFrameCentreCoordinate] = (0, 0, 0)
     # cv2.circle(originalSunImage, centreFrameCoordinate, 8, (0, 0, 0), thickness = 1)
     
-    cv2.imshow("Frame Centre", originalSunImage)
-    cv2.waitKey(0)
+    # cv2.imshow("Frame Centre", 4originalSunImage)
+    # cv2.waitKey(0)
 
     # cv2.line(originalSunImage, centreFrameCoordinate, centroidCoordinate, (0, 0, 0), thickness = 1)
     # cv2.imshow("Offset", originalSunImage)
@@ -70,16 +69,16 @@ def CalulateOffset(xCentroidCoordinate, yCentroidCoordinate, originalSunImage, i
     intersection = (yCentroidCoordinate, yFrameCentreCoordinate)
     # offsetY = (xFrameCentreCoordinate, yCentroidCoordinate)
     
-    cv2.line(originalSunImage, centroidCoordinate, intersection, (0, 0, 0), thickness = 1)  # Line 1
-    cv2.line(originalSunImage, intersection, centreFrameCoordinate, (0, 0, 0), thickness = 1) # Line 2
-    cv2.imshow("Offset", originalSunImage)
-    cv2.waitKey(0)
+    # cv2.line(originalSunImage, centroidCoordinate, intersection, (0, 0, 0), thickness = 1)  # Line 1
+    # cv2.line(originalSunImage, intersection, centreFrameCoordinate, (0, 0, 0), thickness = 1) # Line 2
+    # cv2.imshow("Offset", originalSunImage)
+    # cv2.waitKey(0)
                           
     offsetX = abs(yCentroidCoordinate - xFrameCentreCoordinate)
     offsetY = abs(xCentroidCoordinate - yFrameCentreCoordinate)
     
-    print(f"OffsetX: {offsetX}")
-    print(f"OffsetY: {offsetY}")
+    # print(f"OffsetX: {offsetX}")
+    # print(f"OffsetY: {offsetY}")
     
     return offsetX, offsetY
     

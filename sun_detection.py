@@ -102,7 +102,7 @@ def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
 
 def SunDetection(pathToImage):
     #Read the input image
-    print(pathToImage)
+    # print(pathToImage)
     originalSunImage = cv2.imread(pathToImage)
     #DisplayImage("Original Image", originalSunImage)
 
@@ -154,6 +154,6 @@ def SunDetection(pathToImage):
 
     offsetX, offsetY = util.CalulateOffset(xCentroidCoordinate, yCentroidCoordinate, originalSunImage, imageWidth, imageHeight)
 
-    cv2.destroyAllWindows()
+    # cv2.destroyAllWindows()
     
     return offsetX, offsetY

@@ -2,22 +2,6 @@ import requests
 from picamera import PiCamera
 from time import sleep
 
-#check if camera working properly
-try:
-    camera = PiCamera()
-except:
-    print("Camera is not Enabled. Try running 'sudo raspi-config'. ")
-    #Update TaskList with the camera error
-    try:
-        camera = PiCamera()
-    except:
-        #call Shutdown with Error code
-        print("Camera not Working")
-
-camera.start_preview()
-sleep(2)
-camera.stop_preview()
-
 #check if connected to App
 def ConnectedToApp():
     pass

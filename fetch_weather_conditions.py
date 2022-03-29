@@ -3,10 +3,9 @@ from multiprocessing import Condition
 import config
 import requests
 
-# temporary method to find the approximate location of the pi
+# fetching the public ip
 
 public_ip = requests.get('https://api.ipify.org').text
-print(f'\nPublic IP address: {public_ip}\n')
 
 # fetching the localtime data
 
@@ -22,7 +21,6 @@ headers = {
 response = requests.request("GET", time_url, headers=headers, params=time_querystring)
 
 response = response.json() # converting fetched 'requests.models.Response' object to a json data object
-print(response)
 
 location_data = response["location"] # fetching the single returned key from the json object
 
@@ -31,12 +29,10 @@ print(f"\nDate and time: {localtime}")
 
 time = localtime[11:] # extracting only the time part from date and time (24hr format)
 
-print(f'\nTime: {time}')
-
 # fetching the weather forecast data
 
 #region = location_data.get('region')
-region = "Boston"
+region = "Panaji"
 days = "3"
 
 weather_forecast_querystring = {"q":region,"days":days}
@@ -71,10 +67,12 @@ print(f"Humidity: {humidity}")
 precip_mm = weather_data_current["precip_mm"]
 print(f"Precipitation in millimeters: {precip_mm}")
 
-precip_mm_31st = response["forecast"]
-precip_mm_31st = precip_mm_31st["forecastday"]
-precip_mm_31st = precip_mm_31st[2]
-precip_mm_31st = precip_mm_31st["day"]
-precip_mm_31st = precip_mm_31st["totalprecip_mm"]
+# condition for rain (light rain)
 
-print(f"\nPrecipitation in millimeters on 31st: {precip_mm_31st}")
+if(precip_mm >= 2.5):
+    print("Light rain possible.")
+    # report to database
+else:
+    print("No rain, enjoy!")
+    # no problem, go ahead
+    

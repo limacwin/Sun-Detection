@@ -1,6 +1,40 @@
 import RPi.GPIO as GPIO
 import time
 
+in1 = 24
+in2 = 23
+in3 = 4
+in4 = 22
+en1 = 25
+en2 = 27
+temp1 = 1
+temp2 = 1
+
+GPIO.setmode(GPIO.BCM)
+
+GPIO.setup(in1,GPIO.OUT)
+GPIO.setup(in2,GPIO.OUT)
+GPIO.setup(en1,GPIO.OUT)
+
+GPIO.setup(in3,GPIO.OUT)
+GPIO.setup(in4,GPIO.OUT)
+GPIO.setup(en2,GPIO.OUT)
+
+GPIO.output(in1,GPIO.LOW)
+GPIO.output(in2,GPIO.LOW)
+p1 = GPIO.PWM(en1,1000)
+
+GPIO.output(in3,GPIO.LOW)
+GPIO.output(in4,GPIO.LOW)
+p2 = GPIO.PWM(en2,1000)
+
+p1.start(25)
+p2.start(27)
+p1.ChangeDutyCycle(100)
+p2.ChangeDutyCycle(100)
+
+full_rotation_time = 10 # to be changed later
+
 def unitsConversion(offsetX, offsetY):
     mmUnits = 0.264583333
     offsetX = offsetX * mmUnits
@@ -18,38 +52,6 @@ def unitsConversion(offsetX, offsetY):
     motorRotation(offsetXTime, offsetYTime)
 
 def motorRotation(offsetXTime, offsetYTime):
-    in1 = 24
-    in2 = 23
-    in3 = 4
-    in4 = 22
-    en1 = 25
-    en2 = 27
-    temp1 = 1
-    temp2 = 1
-
-    GPIO.setmode(GPIO.BCM)
-
-    GPIO.setup(in1,GPIO.OUT)
-    GPIO.setup(in2,GPIO.OUT)
-    GPIO.setup(en1,GPIO.OUT)
-
-    GPIO.setup(in3,GPIO.OUT)
-    GPIO.setup(in4,GPIO.OUT)
-    GPIO.setup(en2,GPIO.OUT)
-
-    GPIO.output(in1,GPIO.LOW)
-    GPIO.output(in2,GPIO.LOW)
-    p1 = GPIO.PWM(en1,1000)
-
-    GPIO.output(in3,GPIO.LOW)
-    GPIO.output(in4,GPIO.LOW)
-    p2 = GPIO.PWM(en2,1000)
-
-    p1.start(25)
-    p2.start(27)
-    p1.ChangeDutyCycle(100)
-    p2.ChangeDutyCycle(100)
-
     first = offsetXTime
     second = offsetYTime
 
@@ -82,3 +84,16 @@ def motorRotation(offsetXTime, offsetYTime):
             break
     GPIO.cleanup()
     print("Motor rotation successful")
+    
+def resetPosition():
+    currentTime = time.time()
+    while(True):
+        if(temp2==1):
+            GPIO.output(in1,GPIO.LOW)
+            GPIO.output(in2,GPIO.HIGH)
+        end = time.time()
+        if((end - currentTime) > full_rotation_time):
+            GPIO.output(in1,GPIO.LOW)
+            GPIO.output(in2,GPIO.LOW)
+            break
+    GPIO.cleanup()
