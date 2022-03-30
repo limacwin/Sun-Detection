@@ -39,9 +39,9 @@ def CalculateCentroid(originalSunImage, binarySunImage, imageWidth, imageHeight)
     # print(f"Centroid coordinate (X, Y): ({xCentroidCoordinate},{yCentroidCoordinate})")
 
     originalSunImage[xCentroidCoordinate, yCentroidCoordinate] = (0, 255, 0)
-    # cv2.circle(originalSunImage, (yCentroidCoordinate, xCentroidCoordinate), 8, (0, 255, 0), thickness = 1)
-    # cv2.imshow("Centroid", originalSunImage)
-    # cv2.waitKey(0)
+    cv2.circle(originalSunImage, (yCentroidCoordinate, xCentroidCoordinate), 8, (0, 255, 0), thickness = 1)
+    cv2.imshow("Centroid", originalSunImage)
+    cv2.waitKey(0)
     
     return xCentroidCoordinate, yCentroidCoordinate
 
@@ -55,14 +55,14 @@ def CalulateOffset(xCentroidCoordinate, yCentroidCoordinate, originalSunImage, i
     centreFrameCoordinate = (xFrameCentreCoordinate, yFrameCentreCoordinate)
     centroidCoordinate = (yCentroidCoordinate, xCentroidCoordinate)
     originalSunImage[yFrameCentreCoordinate, xFrameCentreCoordinate] = (0, 0, 0)
-    # cv2.circle(originalSunImage, centreFrameCoordinate, 8, (0, 0, 0), thickness = 1)
+    cv2.circle(originalSunImage, centreFrameCoordinate, 8, (0, 0, 0), thickness = 1)
     
-    # cv2.imshow("Frame Centre", 4originalSunImage)
-    # cv2.waitKey(0)
+    cv2.imshow("Frame Centre", originalSunImage)
+    cv2.waitKey(0)
 
-    # cv2.line(originalSunImage, centreFrameCoordinate, centroidCoordinate, (0, 0, 0), thickness = 1)
-    # cv2.imshow("Offset", originalSunImage)
-    # cv2.waitKey(0)
+    cv2.line(originalSunImage, centreFrameCoordinate, centroidCoordinate, (0, 0, 0), thickness = 1)
+    cv2.imshow("Offset", originalSunImage)
+    cv2.waitKey(0)
 
     #Calculating the offset distance
     # offset = math.sqrt(((xCentroidCoordinate - xFrameCentreCoordinate) ** 2) + ((yCentroidCoordinate - yFrameCentreCoordinate) ** 2))

@@ -5,7 +5,6 @@ import sun_detection as sd
 def CaptureImages(preview):
     camera = PiCamera()
     camera.resolution = (640, 480)
-    camera.rotation = 180
 
     # code to capture images
     if(preview):

@@ -11,14 +11,14 @@ def main():
     sunriseTime = 7
     sunsetTime = 17
     timeDuration = sunsetTime - sunriseTime # 10s
-    timeDuration = 3600
+    # timeDuration = 2400
 
     start = time.time()
     end = time.time()
 
     while(end - start <= timeDuration):
         # print("Calling camera-test to take 1 images")
-        offsetX, offsetY = cr.CaptureImages(preview=False)
+        offsetX, offsetY = cr.CaptureImages(preview=True)
 
         dmr.unitsConversion(offsetX, offsetY)
 

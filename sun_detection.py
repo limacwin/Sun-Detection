@@ -98,7 +98,7 @@ def CalculateDirection(xValue, yValue, originalSunImage, binarySunImage):
             terminationYValue = yValue
     
     data.close()
-    # DisplayImage("Boundary Detected Image", originalSunImage)
+    DisplayImage("Boundary Detected Image", originalSunImage)
 
 def SunDetection(pathToImage):
     #Read the input image
@@ -132,7 +132,7 @@ def SunDetection(pathToImage):
 
     kernel = np.ones((7,7), np.uint8)
     binarySunImage = cv2.erode(binarySunImage, kernel, iterations=1)
-    # DisplayImage("Eroded Image", binarySunImage)
+    DisplayImage("Eroded Image", binarySunImage)
 
     cv2.imwrite("images/generated/binary_threshold_image.bmp", binarySunImage)
 
