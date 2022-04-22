@@ -11,7 +11,7 @@ fba.initialize_app(cred, {
 
 # save data
 ref = db.reference('data/')
-ref.set({
+ref.set ({
     'power_generated': {
         'from': '10:00',
         'power': '52W',
@@ -39,4 +39,7 @@ rpi_status.update({
     'csi': 'inactive'
 })
 
-print(ref.get())
+
+
+
+
