@@ -1,656 +1,510 @@
 Initial direction: 7
 
 Iteration 1: direction: 5
-X value: 444 , Y Value: 102
-Returned direction: 6
+X value: 387 , Y Value: 335
+Returned direction: 5
 
-Iteration 2: direction: 5
-X value: 445 , Y Value: 102
+Iteration 2: direction: 3
+X value: 388 , Y Value: 334
 Returned direction: 5
 
 Iteration 3: direction: 3
-X value: 446 , Y Value: 101
-Returned direction: 5
-
-Iteration 4: direction: 3
-X value: 447 , Y Value: 100
+X value: 389 , Y Value: 333
 Returned direction: 4
 
+Iteration 4: direction: 3
+X value: 389 , Y Value: 332
+Returned direction: 5
+
 Iteration 5: direction: 3
-X value: 447 , Y Value: 99
+X value: 390 , Y Value: 331
 Returned direction: 4
 
 Iteration 6: direction: 3
-X value: 447 , Y Value: 98
+X value: 390 , Y Value: 330
 Returned direction: 4
 
 Iteration 7: direction: 3
-X value: 447 , Y Value: 97
+X value: 390 , Y Value: 329
 Returned direction: 4
 
 Iteration 8: direction: 3
-X value: 447 , Y Value: 96
-Returned direction: 4
+X value: 390 , Y Value: 328
+Returned direction: 5
 
 Iteration 9: direction: 3
-X value: 447 , Y Value: 95
-Returned direction: 4
+X value: 391 , Y Value: 327
+Returned direction: 5
 
 Iteration 10: direction: 3
-X value: 447 , Y Value: 94
-Returned direction: 3
+X value: 392 , Y Value: 326
+Returned direction: 5
 
-Iteration 11: direction: 1
-X value: 446 , Y Value: 93
+Iteration 11: direction: 3
+X value: 393 , Y Value: 325
 Returned direction: 6
 
 Iteration 12: direction: 5
-X value: 447 , Y Value: 93
+X value: 394 , Y Value: 325
 Returned direction: 5
 
 Iteration 13: direction: 3
-X value: 448 , Y Value: 92
+X value: 395 , Y Value: 324
 Returned direction: 4
 
 Iteration 14: direction: 3
-X value: 448 , Y Value: 91
-Returned direction: 4
+X value: 395 , Y Value: 323
+Returned direction: 5
 
 Iteration 15: direction: 3
-X value: 448 , Y Value: 90
+X value: 396 , Y Value: 322
 Returned direction: 4
 
 Iteration 16: direction: 3
-X value: 448 , Y Value: 89
-Returned direction: 4
+X value: 396 , Y Value: 321
+Returned direction: 6
 
-Iteration 17: direction: 3
-X value: 448 , Y Value: 88
-Returned direction: 4
-
-Iteration 18: direction: 3
-X value: 448 , Y Value: 87
-Returned direction: 4
-
-Iteration 19: direction: 3
-X value: 448 , Y Value: 86
-Returned direction: 4
-
-Iteration 20: direction: 3
-X value: 448 , Y Value: 85
-Returned direction: 4
-
-Iteration 21: direction: 3
-X value: 448 , Y Value: 84
-Returned direction: 4
-
-Iteration 22: direction: 3
-X value: 448 , Y Value: 83
-Returned direction: 4
-
-Iteration 23: direction: 3
-X value: 448 , Y Value: 82
-Returned direction: 4
-
-Iteration 24: direction: 3
-X value: 448 , Y Value: 81
-Returned direction: 4
-
-Iteration 25: direction: 3
-X value: 448 , Y Value: 80
-Returned direction: 4
-
-Iteration 26: direction: 3
-X value: 448 , Y Value: 79
+Iteration 17: direction: 5
+X value: 397 , Y Value: 321
 Returned direction: 5
 
-Iteration 27: direction: 3
-X value: 449 , Y Value: 78
-Returned direction: 4
+Iteration 18: direction: 3
+X value: 398 , Y Value: 320
+Returned direction: 5
 
-Iteration 28: direction: 3
-X value: 449 , Y Value: 77
-Returned direction: 4
+Iteration 19: direction: 3
+X value: 399 , Y Value: 319
+Returned direction: 6
 
-Iteration 29: direction: 3
-X value: 449 , Y Value: 76
-Returned direction: 4
+Iteration 20: direction: 5
+X value: 400 , Y Value: 319
+Returned direction: 5
 
-Iteration 30: direction: 3
-X value: 449 , Y Value: 75
+Iteration 21: direction: 3
+X value: 401 , Y Value: 318
+Returned direction: 6
+
+Iteration 22: direction: 5
+X value: 402 , Y Value: 318
+Returned direction: 5
+
+Iteration 23: direction: 3
+X value: 403 , Y Value: 317
+Returned direction: 6
+
+Iteration 24: direction: 5
+X value: 404 , Y Value: 317
+Returned direction: 6
+
+Iteration 25: direction: 5
+X value: 405 , Y Value: 317
+Returned direction: 6
+
+Iteration 26: direction: 5
+X value: 406 , Y Value: 317
+Returned direction: 6
+
+Iteration 27: direction: 5
+X value: 407 , Y Value: 317
+Returned direction: 6
+
+Iteration 28: direction: 5
+X value: 408 , Y Value: 317
+Returned direction: 6
+
+Iteration 29: direction: 5
+X value: 409 , Y Value: 317
+Returned direction: 6
+
+Iteration 30: direction: 5
+X value: 410 , Y Value: 317
 Returned direction: 6
 
 Iteration 31: direction: 5
-X value: 450 , Y Value: 75
+X value: 411 , Y Value: 317
 Returned direction: 6
 
 Iteration 32: direction: 5
-X value: 451 , Y Value: 75
-Returned direction: 5
+X value: 412 , Y Value: 317
+Returned direction: 7
 
-Iteration 33: direction: 3
-X value: 452 , Y Value: 74
-Returned direction: 4
-
-Iteration 34: direction: 3
-X value: 452 , Y Value: 73
+Iteration 33: direction: 5
+X value: 413 , Y Value: 318
 Returned direction: 6
 
+Iteration 34: direction: 5
+X value: 414 , Y Value: 318
+Returned direction: 7
+
 Iteration 35: direction: 5
-X value: 453 , Y Value: 73
+X value: 415 , Y Value: 319
 Returned direction: 6
 
 Iteration 36: direction: 5
-X value: 454 , Y Value: 73
-Returned direction: 5
-
-Iteration 37: direction: 3
-X value: 455 , Y Value: 72
-Returned direction: 4
-
-Iteration 38: direction: 3
-X value: 455 , Y Value: 71
-Returned direction: 4
-
-Iteration 39: direction: 3
-X value: 455 , Y Value: 70
-Returned direction: 4
-
-Iteration 40: direction: 3
-X value: 455 , Y Value: 69
-Returned direction: 4
-
-Iteration 41: direction: 3
-X value: 455 , Y Value: 68
-Returned direction: 4
-
-Iteration 42: direction: 3
-X value: 455 , Y Value: 67
-Returned direction: 4
-
-Iteration 43: direction: 3
-X value: 455 , Y Value: 66
-Returned direction: 3
-
-Iteration 44: direction: 1
-X value: 454 , Y Value: 65
-Returned direction: 2
-
-Iteration 45: direction: 1
-X value: 453 , Y Value: 65
-Returned direction: 4
-
-Iteration 46: direction: 3
-X value: 453 , Y Value: 64
+X value: 416 , Y Value: 319
 Returned direction: 6
 
-Iteration 47: direction: 5
-X value: 454 , Y Value: 64
+Iteration 37: direction: 5
+X value: 417 , Y Value: 319
 Returned direction: 6
 
-Iteration 48: direction: 5
-X value: 455 , Y Value: 64
+Iteration 38: direction: 5
+X value: 418 , Y Value: 319
 Returned direction: 6
 
-Iteration 49: direction: 5
-X value: 456 , Y Value: 64
-Returned direction: 5
-
-Iteration 50: direction: 3
-X value: 457 , Y Value: 63
-Returned direction: 4
-
-Iteration 51: direction: 3
-X value: 457 , Y Value: 62
-Returned direction: 4
-
-Iteration 52: direction: 3
-X value: 457 , Y Value: 61
-Returned direction: 4
-
-Iteration 53: direction: 3
-X value: 457 , Y Value: 60
-Returned direction: 4
-
-Iteration 54: direction: 3
-X value: 457 , Y Value: 59
-Returned direction: 4
-
-Iteration 55: direction: 3
-X value: 457 , Y Value: 58
-Returned direction: 4
-
-Iteration 56: direction: 3
-X value: 457 , Y Value: 57
-Returned direction: 3
-
-Iteration 57: direction: 1
-X value: 456 , Y Value: 56
-Returned direction: 4
-
-Iteration 58: direction: 3
-X value: 456 , Y Value: 55
-Returned direction: 4
-
-Iteration 59: direction: 3
-X value: 456 , Y Value: 54
+Iteration 39: direction: 5
+X value: 419 , Y Value: 319
 Returned direction: 6
 
-Iteration 60: direction: 5
-X value: 457 , Y Value: 54
-Returned direction: 5
-
-Iteration 61: direction: 3
-X value: 458 , Y Value: 53
-Returned direction: 4
-
-Iteration 62: direction: 3
-X value: 458 , Y Value: 52
-Returned direction: 4
-
-Iteration 63: direction: 3
-X value: 458 , Y Value: 51
-Returned direction: 4
-
-Iteration 64: direction: 3
-X value: 458 , Y Value: 50
-Returned direction: 4
-
-Iteration 65: direction: 3
-X value: 458 , Y Value: 49
-Returned direction: 4
-
-Iteration 66: direction: 3
-X value: 458 , Y Value: 48
-Returned direction: 6
-
-Iteration 67: direction: 5
-X value: 459 , Y Value: 48
-Returned direction: 5
-
-Iteration 68: direction: 3
-X value: 460 , Y Value: 47
-Returned direction: 4
-
-Iteration 69: direction: 3
-X value: 460 , Y Value: 46
-Returned direction: 4
-
-Iteration 70: direction: 3
-X value: 460 , Y Value: 45
-Returned direction: 4
-
-Iteration 71: direction: 3
-X value: 460 , Y Value: 44
-Returned direction: 6
-
-Iteration 72: direction: 5
-X value: 461 , Y Value: 44
-Returned direction: 6
-
-Iteration 73: direction: 5
-X value: 462 , Y Value: 44
-Returned direction: 5
-
-Iteration 74: direction: 3
-X value: 463 , Y Value: 43
-Returned direction: 4
-
-Iteration 75: direction: 3
-X value: 463 , Y Value: 42
-Returned direction: 4
-
-Iteration 76: direction: 3
-X value: 463 , Y Value: 41
-Returned direction: 4
-
-Iteration 77: direction: 3
-X value: 463 , Y Value: 40
-Returned direction: 5
-
-Iteration 78: direction: 3
-X value: 464 , Y Value: 39
-Returned direction: 4
-
-Iteration 79: direction: 3
-X value: 464 , Y Value: 38
-Returned direction: 4
-
-Iteration 80: direction: 3
-X value: 464 , Y Value: 37
-Returned direction: 4
-
-Iteration 81: direction: 3
-X value: 464 , Y Value: 36
-Returned direction: 5
-
-Iteration 82: direction: 3
-X value: 465 , Y Value: 35
-Returned direction: 4
-
-Iteration 83: direction: 3
-X value: 465 , Y Value: 34
-Returned direction: 4
-
-Iteration 84: direction: 3
-X value: 465 , Y Value: 33
-Returned direction: 5
-
-Iteration 85: direction: 3
-X value: 466 , Y Value: 32
-Returned direction: 4
-
-Iteration 86: direction: 3
-X value: 466 , Y Value: 31
-Returned direction: 4
-
-Iteration 87: direction: 3
-X value: 466 , Y Value: 30
-Returned direction: 6
-
-Iteration 88: direction: 5
-X value: 467 , Y Value: 30
-Returned direction: 5
-
-Iteration 89: direction: 3
-X value: 468 , Y Value: 29
-Returned direction: 4
-
-Iteration 90: direction: 3
-X value: 468 , Y Value: 28
-Returned direction: 4
-
-Iteration 91: direction: 3
-X value: 468 , Y Value: 27
-Returned direction: 5
-
-Iteration 92: direction: 3
-X value: 469 , Y Value: 26
-Returned direction: 4
-
-Iteration 93: direction: 3
-X value: 469 , Y Value: 25
-Returned direction: 5
-
-Iteration 94: direction: 3
-X value: 470 , Y Value: 24
-Returned direction: 4
-
-Iteration 95: direction: 3
-X value: 470 , Y Value: 23
-Returned direction: 4
-
-Iteration 96: direction: 3
-X value: 470 , Y Value: 22
-Returned direction: 6
-
-Iteration 97: direction: 5
-X value: 471 , Y Value: 22
-Returned direction: 6
-
-Iteration 98: direction: 5
-X value: 472 , Y Value: 22
-Returned direction: 5
-
-Iteration 99: direction: 3
-X value: 473 , Y Value: 21
-Returned direction: 4
-
-Iteration 100: direction: 3
-X value: 473 , Y Value: 20
-Returned direction: 4
-
-Iteration 101: direction: 3
-X value: 473 , Y Value: 19
-Returned direction: 4
-
-Iteration 102: direction: 3
-X value: 473 , Y Value: 18
-Returned direction: 5
-
-Iteration 103: direction: 3
-X value: 474 , Y Value: 17
-Returned direction: 4
-
-Iteration 104: direction: 3
-X value: 474 , Y Value: 16
-Returned direction: 4
-
-Iteration 105: direction: 3
-X value: 474 , Y Value: 15
-Returned direction: 6
-
-Iteration 106: direction: 5
-X value: 475 , Y Value: 15
-Returned direction: 0
-
-Iteration 107: direction: 7
-X value: 475 , Y Value: 16
-Returned direction: 0
-
-Iteration 108: direction: 7
-X value: 475 , Y Value: 17
-Returned direction: 0
-
-Iteration 109: direction: 7
-X value: 475 , Y Value: 18
-Returned direction: 0
-
-Iteration 110: direction: 7
-X value: 475 , Y Value: 19
-Returned direction: 0
-
-Iteration 111: direction: 7
-X value: 475 , Y Value: 20
-Returned direction: 0
-
-Iteration 112: direction: 7
-X value: 475 , Y Value: 21
-Returned direction: 0
-
-Iteration 113: direction: 7
-X value: 475 , Y Value: 22
-Returned direction: 0
-
-Iteration 114: direction: 7
-X value: 475 , Y Value: 23
-Returned direction: 0
-
-Iteration 115: direction: 7
-X value: 475 , Y Value: 24
-Returned direction: 0
-
-Iteration 116: direction: 7
-X value: 475 , Y Value: 25
-Returned direction: 0
-
-Iteration 117: direction: 7
-X value: 475 , Y Value: 26
-Returned direction: 0
-
-Iteration 118: direction: 7
-X value: 475 , Y Value: 27
-Returned direction: 0
-
-Iteration 119: direction: 7
-X value: 475 , Y Value: 28
-Returned direction: 0
-
-Iteration 120: direction: 7
-X value: 475 , Y Value: 29
-Returned direction: 0
-
-Iteration 121: direction: 7
-X value: 475 , Y Value: 30
-Returned direction: 0
-
-Iteration 122: direction: 7
-X value: 475 , Y Value: 31
-Returned direction: 0
-
-Iteration 123: direction: 7
-X value: 475 , Y Value: 32
-Returned direction: 0
-
-Iteration 124: direction: 7
-X value: 475 , Y Value: 33
-Returned direction: 0
-
-Iteration 125: direction: 7
-X value: 475 , Y Value: 34
-Returned direction: 0
-
-Iteration 126: direction: 7
-X value: 475 , Y Value: 35
-Returned direction: 0
-
-Iteration 127: direction: 7
-X value: 475 , Y Value: 36
-Returned direction: 0
-
-Iteration 128: direction: 7
-X value: 475 , Y Value: 37
-Returned direction: 0
-
-Iteration 129: direction: 7
-X value: 475 , Y Value: 38
-Returned direction: 0
-
-Iteration 130: direction: 7
-X value: 475 , Y Value: 39
-Returned direction: 0
-
-Iteration 131: direction: 7
-X value: 475 , Y Value: 40
-Returned direction: 0
-
-Iteration 132: direction: 7
-X value: 475 , Y Value: 41
-Returned direction: 0
-
-Iteration 133: direction: 7
-X value: 475 , Y Value: 42
-Returned direction: 0
-
-Iteration 134: direction: 7
-X value: 475 , Y Value: 43
-Returned direction: 0
-
-Iteration 135: direction: 7
-X value: 475 , Y Value: 44
-Returned direction: 0
-
-Iteration 136: direction: 7
-X value: 475 , Y Value: 45
-Returned direction: 0
-
-Iteration 137: direction: 7
-X value: 475 , Y Value: 46
-Returned direction: 0
-
-Iteration 138: direction: 7
-X value: 475 , Y Value: 47
-Returned direction: 0
-
-Iteration 139: direction: 7
-X value: 475 , Y Value: 48
-Returned direction: 0
-
-Iteration 140: direction: 7
-X value: 475 , Y Value: 49
-Returned direction: 0
-
-Iteration 141: direction: 7
-X value: 475 , Y Value: 50
-Returned direction: 0
-
-Iteration 142: direction: 7
-X value: 475 , Y Value: 51
-Returned direction: 0
-
-Iteration 143: direction: 7
-X value: 475 , Y Value: 52
-Returned direction: 0
-
-Iteration 144: direction: 7
-X value: 475 , Y Value: 53
-Returned direction: 0
-
-Iteration 145: direction: 7
-X value: 475 , Y Value: 54
-Returned direction: 0
-
-Iteration 146: direction: 7
-X value: 475 , Y Value: 55
-Returned direction: 0
-
-Iteration 147: direction: 7
-X value: 475 , Y Value: 56
-Returned direction: 0
-
-Iteration 148: direction: 7
-X value: 475 , Y Value: 57
-Returned direction: 0
-
-Iteration 149: direction: 7
-X value: 475 , Y Value: 58
-Returned direction: 0
-
-Iteration 150: direction: 7
-X value: 475 , Y Value: 59
-Returned direction: 0
-
-Iteration 151: direction: 7
-X value: 475 , Y Value: 60
-Returned direction: 0
-
-Iteration 152: direction: 7
-X value: 475 , Y Value: 61
-Returned direction: 0
-
-Iteration 153: direction: 7
-X value: 475 , Y Value: 62
-Returned direction: 0
-
-Iteration 154: direction: 7
-X value: 475 , Y Value: 63
-Returned direction: 0
-
-Iteration 155: direction: 7
-X value: 475 , Y Value: 64
-Returned direction: 0
-
-Iteration 156: direction: 7
-X value: 475 , Y Value: 65
-Returned direction: 0
-
-Iteration 157: direction: 7
-X value: 475 , Y Value: 66
-Returned direction: 0
-
-Iteration 158: direction: 7
-X value: 475 , Y Value: 67
-Returned direction: 0
-
-Iteration 159: direction: 7
-X value: 475 , Y Value: 68
-Returned direction: 0
-
-Iteration 160: direction: 7
-X value: 475 , Y Value: 69
+Iteration 40: direction: 5
+X value: 420 , Y Value: 319
 Returned direction: 7
 
-Iteration 161: direction: 5
-X value: 476 , Y Value: 70
+Iteration 41: direction: 5
+X value: 421 , Y Value: 320
+Returned direction: 7
+
+Iteration 42: direction: 5
+X value: 422 , Y Value: 321
 Returned direction: 6
 
-Iteration 162: direction: 5
-X value: 477 , Y Value: 70
+Iteration 43: direction: 5
+X value: 423 , Y Value: 321
+Returned direction: 7
+
+Iteration 44: direction: 5
+X value: 424 , Y Value: 322
 Returned direction: 6
 
-Iteration 163: direction: 5
-X value: 478 , Y Value: 70
+Iteration 45: direction: 5
+X value: 425 , Y Value: 322
+Returned direction: 7
+
+Iteration 46: direction: 5
+X value: 426 , Y Value: 323
+Returned direction: 0
+
+Iteration 47: direction: 7
+X value: 426 , Y Value: 324
+Returned direction: 7
+
+Iteration 48: direction: 5
+X value: 427 , Y Value: 325
+Returned direction: 0
+
+Iteration 49: direction: 7
+X value: 427 , Y Value: 326
+Returned direction: 7
+
+Iteration 50: direction: 5
+X value: 428 , Y Value: 327
+Returned direction: 7
+
+Iteration 51: direction: 5
+X value: 429 , Y Value: 328
+Returned direction: 7
+
+Iteration 52: direction: 5
+X value: 430 , Y Value: 329
+Returned direction: 7
+
+Iteration 53: direction: 5
+X value: 431 , Y Value: 330
+Returned direction: 7
+
+Iteration 54: direction: 5
+X value: 432 , Y Value: 331
 Returned direction: 6
 
-Iteration 164: direction: 5
-X value: 479 , Y Value: 70
+Iteration 55: direction: 5
+X value: 433 , Y Value: 331
+Returned direction: 7
+
+Iteration 56: direction: 5
+X value: 434 , Y Value: 332
+Returned direction: 7
+
+Iteration 57: direction: 5
+X value: 435 , Y Value: 333
+Returned direction: 0
+
+Iteration 58: direction: 7
+X value: 435 , Y Value: 334
+Returned direction: 0
+
+Iteration 59: direction: 7
+X value: 435 , Y Value: 335
+Returned direction: 0
+
+Iteration 60: direction: 7
+X value: 435 , Y Value: 336
+Returned direction: 0
+
+Iteration 61: direction: 7
+X value: 435 , Y Value: 337
+Returned direction: 0
+
+Iteration 62: direction: 7
+X value: 435 , Y Value: 338
+Returned direction: 1
+
+Iteration 63: direction: 7
+X value: 434 , Y Value: 339
+Returned direction: 0
+
+Iteration 64: direction: 7
+X value: 434 , Y Value: 340
+Returned direction: 1
+
+Iteration 65: direction: 7
+X value: 433 , Y Value: 341
+Returned direction: 1
+
+Iteration 66: direction: 7
+X value: 432 , Y Value: 342
+Returned direction: 0
+
+Iteration 67: direction: 7
+X value: 432 , Y Value: 343
+Returned direction: 0
+
+Iteration 68: direction: 7
+X value: 432 , Y Value: 344
+Returned direction: 1
+
+Iteration 69: direction: 7
+X value: 431 , Y Value: 345
+Returned direction: 1
+
+Iteration 70: direction: 7
+X value: 430 , Y Value: 346
+Returned direction: 1
+
+Iteration 71: direction: 7
+X value: 429 , Y Value: 347
+Returned direction: 1
+
+Iteration 72: direction: 7
+X value: 428 , Y Value: 348
+Returned direction: 1
+
+Iteration 73: direction: 7
+X value: 427 , Y Value: 349
+Returned direction: 0
+
+Iteration 74: direction: 7
+X value: 427 , Y Value: 350
+Returned direction: 1
+
+Iteration 75: direction: 7
+X value: 426 , Y Value: 351
+Returned direction: 2
+
+Iteration 76: direction: 1
+X value: 425 , Y Value: 351
+Returned direction: 1
+
+Iteration 77: direction: 7
+X value: 424 , Y Value: 352
+Returned direction: 0
+
+Iteration 78: direction: 7
+X value: 424 , Y Value: 353
+Returned direction: 0
+
+Iteration 79: direction: 7
+X value: 424 , Y Value: 354
+Returned direction: 0
+
+Iteration 80: direction: 7
+X value: 424 , Y Value: 355
+Returned direction: 0
+
+Iteration 81: direction: 7
+X value: 424 , Y Value: 356
+Returned direction: 2
+
+Iteration 82: direction: 1
+X value: 423 , Y Value: 356
+Returned direction: 2
+
+Iteration 83: direction: 1
+X value: 422 , Y Value: 356
+Returned direction: 2
+
+Iteration 84: direction: 1
+X value: 421 , Y Value: 356
+Returned direction: 2
+
+Iteration 85: direction: 1
+X value: 420 , Y Value: 356
+Returned direction: 2
+
+Iteration 86: direction: 1
+X value: 419 , Y Value: 356
+Returned direction: 1
+
+Iteration 87: direction: 7
+X value: 418 , Y Value: 357
+Returned direction: 2
+
+Iteration 88: direction: 1
+X value: 417 , Y Value: 357
+Returned direction: 3
+
+Iteration 89: direction: 1
+X value: 416 , Y Value: 356
+Returned direction: 2
+
+Iteration 90: direction: 1
+X value: 415 , Y Value: 356
+Returned direction: 2
+
+Iteration 91: direction: 1
+X value: 414 , Y Value: 356
+Returned direction: 2
+
+Iteration 92: direction: 1
+X value: 413 , Y Value: 356
+Returned direction: 2
+
+Iteration 93: direction: 1
+X value: 412 , Y Value: 356
+Returned direction: 2
+
+Iteration 94: direction: 1
+X value: 411 , Y Value: 356
+Returned direction: 2
+
+Iteration 95: direction: 1
+X value: 410 , Y Value: 356
+Returned direction: 3
+
+Iteration 96: direction: 1
+X value: 409 , Y Value: 355
+Returned direction: 2
+
+Iteration 97: direction: 1
+X value: 408 , Y Value: 355
+Returned direction: 2
+
+Iteration 98: direction: 1
+X value: 407 , Y Value: 355
+Returned direction: 2
+
+Iteration 99: direction: 1
+X value: 406 , Y Value: 355
+Returned direction: 3
+
+Iteration 100: direction: 1
+X value: 405 , Y Value: 354
+Returned direction: 3
+
+Iteration 101: direction: 1
+X value: 404 , Y Value: 353
+Returned direction: 2
+
+Iteration 102: direction: 1
+X value: 403 , Y Value: 353
+Returned direction: 2
+
+Iteration 103: direction: 1
+X value: 402 , Y Value: 353
+Returned direction: 2
+
+Iteration 104: direction: 1
+X value: 401 , Y Value: 353
+Returned direction: 2
+
+Iteration 105: direction: 1
+X value: 400 , Y Value: 353
+Returned direction: 3
+
+Iteration 106: direction: 1
+X value: 399 , Y Value: 352
+Returned direction: 2
+
+Iteration 107: direction: 1
+X value: 398 , Y Value: 352
+Returned direction: 2
+
+Iteration 108: direction: 1
+X value: 397 , Y Value: 352
+Returned direction: 2
+
+Iteration 109: direction: 1
+X value: 396 , Y Value: 352
+Returned direction: 3
+
+Iteration 110: direction: 1
+X value: 395 , Y Value: 351
+Returned direction: 4
+
+Iteration 111: direction: 3
+X value: 395 , Y Value: 350
+Returned direction: 3
+
+Iteration 112: direction: 1
+X value: 394 , Y Value: 349
+Returned direction: 4
+
+Iteration 113: direction: 3
+X value: 394 , Y Value: 348
+Returned direction: 3
+
+Iteration 114: direction: 1
+X value: 393 , Y Value: 347
+Returned direction: 3
+
+Iteration 115: direction: 1
+X value: 392 , Y Value: 346
+Returned direction: 3
+
+Iteration 116: direction: 1
+X value: 391 , Y Value: 345
+Returned direction: 2
+
+Iteration 117: direction: 1
+X value: 390 , Y Value: 345
+Returned direction: 3
+
+Iteration 118: direction: 1
+X value: 389 , Y Value: 344
+Returned direction: 3
+
+Iteration 119: direction: 1
+X value: 388 , Y Value: 343
+Returned direction: 4
+
+Iteration 120: direction: 3
+X value: 388 , Y Value: 342
+Returned direction: 3
+
+Iteration 121: direction: 1
+X value: 387 , Y Value: 341
+Returned direction: 4
+
+Iteration 122: direction: 3
+X value: 387 , Y Value: 340
+Returned direction: 4
+
+Iteration 123: direction: 3
+X value: 387 , Y Value: 339
+Returned direction: 4
+
+Iteration 124: direction: 3
+X value: 387 , Y Value: 338
+Returned direction: 4
+
+Iteration 125: direction: 3
+X value: 387 , Y Value: 337
+Returned direction: 4
+
+Iteration 126: direction: 3
+X value: 387 , Y Value: 336
+Returned direction: 4
+
+Iteration 127: direction: 3
+X value: 387 , Y Value: 335
+Returned direction: 5
+

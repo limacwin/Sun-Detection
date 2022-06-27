@@ -33,7 +33,7 @@ p2.start(27)
 p1.ChangeDutyCycle(100)
 p2.ChangeDutyCycle(100)
 
-full_rotation_time = 10 # to be changed later
+full_rotation_time = 1 # to be changed later
 
 def unitsConversion(offsetX, offsetY):
     mmUnits = 0.264583333
